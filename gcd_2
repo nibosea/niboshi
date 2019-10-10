@@ -1,0 +1,18 @@
+int gcd_2(int a , int b){
+	int A = max(a,b); //‘å‚«‚¢‚Ù‚¤
+	int B = min(a,b);//¬‚³‚¢‚Ù‚¤
+	int c =-1;
+	int ans = 1 ;
+	while(c!=0){
+		c = A % B;
+		if(c==0){//B‚ªÅ‘åŒö–ñ”
+			ans = B;
+			break;
+		}
+		else{//B‘åŒö–ñ”‚Å‚Í‚È‚¢‚Ì‚ÅCA‚ğB‚ÉCB‚ğC‚É‚µ‚Ä‚à‚¤ˆê“x
+			A = B; 
+			B = c; 
+		}
+	}
+	return ans;//c‚ªÅ‘åŒö–ñ” 
+}
