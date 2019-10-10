@@ -1,4 +1,4 @@
-void divPrime(int n,vector<ll> &A){
+void divPrime(int n,vector<ll> &A){//vector Aに含まれている数すべての数の積　B の素因数を求める
 	for(int i = 2;i * i <= n ; i++){
 		while(n%i==0){
 			n/=i;
