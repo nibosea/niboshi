@@ -1,5 +1,6 @@
-﻿inoremap <silent> jj <ESC>
-scriptencoding utf-8
+set encoding=utf-8
+set clipboard=unnamed,autoselect
+inoremap <silent> jj <ESC>
 " vim:set ts=8 sts=2 sw=2 tw=0: (この行に関しては:help modelineを参照)
 "
 " An example for a Japanese version gvimrc file.
@@ -64,7 +65,7 @@ endif
 
 "---------------------------------------------------------------------------
 " カラー設定:
-colorscheme morning
+colorscheme shirotelin
 
 " 端末モード関連の色設定
 highlight Terminal guifg=lightgrey guibg=grey20
@@ -72,19 +73,8 @@ highlight Terminal guifg=lightgrey guibg=grey20
 "---------------------------------------------------------------------------
 " フォント設定:
 "
-if has('win32')
-  " Windows用
-  set guifont=MS_Gothic:h12:cSHIFTJIS
-  "set guifont=MS_Mincho:h12:cSHIFTJIS
-  " 行間隔の設定
-  set linespace=1
-  " 一部のUCS文字の幅を自動計測して決める
-  if has('kaoriya')
-    set ambiwidth=auto
-  endif
-elseif has('mac')
-  set guifont=Osaka－等幅:h14
-elseif has('xfontset')
+set guifont=Osaka－等幅:h12
+if has('xfontset')
   " UNIX用 (xfontsetを使用)
   set guifontset=a14,r14,k14
 endif
@@ -202,3 +192,10 @@ if has('gvim_starting')
     call neobundle#end()
 endif
 filetype plugin indent on
+source $VIMRUNTIME/delmenu.vim
+set langmenu=ja_jp.utf-8
+source $VIMRUNTIME/menu.vim
+set autowrite
+
+:set modifiable
+:term wsl
